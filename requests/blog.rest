@@ -1,0 +1,82 @@
+GET http://localhost:3003/api/blogs/
+
+###
+POST http://localhost:3003/api/blogs/
+content-type: application/json
+ 
+{
+  "title": "Aiden's Blog",
+  "author": "Aiden",
+  "url": "https://cs2student.github.io/",
+  "likes": 0
+}
+
+###
+POST http://localhost:3003/api/blogs/
+content-type: application/json
+ 
+{
+  "title": "My Blog 2",
+  "author": "Blog Author 2",
+  "url": "General Link",
+  "likes": 0
+}
+
+###
+POST http://localhost:3003/api/users 
+content-type: application/json
+
+{
+  "username": "root",
+  "name": "Superuser",
+  "password": "salainen"
+}
+
+### Create new user
+POST http://localhost:3003/api/users 
+content-type: application/json
+
+{
+  "username": "abc",
+  "name": "aiden",
+  "password": "123"
+}
+
+###
+POST http://localhost:3003/api/blogs/
+content-type: application/json
+
+{
+  "title": "Test title 2",
+  "author": "Author 2",
+  "url": "https://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
+  "userId": "659b4b7596eb825d0cd7cd96"
+}
+
+### Attempt login
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+  "username": "mluukai",
+  "password": "salainen"
+}
+
+### Attempt to post
+POST http://localhost:3003/api/blogs
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVrYWkiLCJpZCI6IjY1OWI2NjcyZmQxNzRiMmZlNTdkYWVjOSIsImlhdCI6MTcwNDY4NzM3MCwiZXhwIjoxNzA0NjkwOTcwfQ.NoN-iCxNL1vLcnm-BBy5uFgUoB0g_qOpVYEVo3BNjg8
+
+{
+  "title": "Test post with auth",
+  "author": "author",
+  "url": "General Link"
+}
+
+### Attempt to delete
+DELETE http://localhost:3003/api/blogs/659b77209e22060533248a38
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVrYWkiLCJpZCI6IjY1OWI2NjcyZmQxNzRiMmZlNTdkYWVjOSIsImlhdCI6MTcwNDY4NzM3MCwiZXhwIjoxNzA0NjkwOTcwfQ.NoN-iCxNL1vLcnm-BBy5uFgUoB0g_qOpVYEVo3BNjg8
+
+###
+GET http://localhost:3003/api/login
